@@ -7,18 +7,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'event-list',
-      component: EventListView
+      name: 'EventList',
+      component: EventListView,
+      props: route => ({ page: parseInt(route.query.page) || 1 })
     },
     {
       path: '/event/:id',
-      name: 'event-details',
+      name: 'EventDetails',
       props: true,
       component: EventDetailsView
     },
     {
       path: '/about',
-      name: 'about',
+      name: 'About',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
